@@ -2,21 +2,61 @@
 
 html {
 	height: 100%;
+	overflow: scroll;
 }
 
 body {
+	background: #F1F1F1;
+	text-align: center;
 	height: 100%;
-	background: #f9f9f9;
+	margin: 0;
+	padding: 0;
+}
+
+body, input, textarea, a.url {
+	font-family:Georgia,"Bitstream Charter",serif;
+}
+
+#site-title {
+	font-family:"Helvetica Neue",Arial,Helvetica,"Nimbus Sans L",sans-serif;
+}
+
+a > img {
+	border: 0 none;
 }
 
 #container {
-	width: 600px;
-	margin: 50px auto 0 auto;
-	text-align: center;
+	background: #FFFFFF;
+	display: inline-block;
+	margin: 20px auto 20px auto;
+	padding: 30px 10px 10px 10px;
+	height: 500;
 }
 
-#networks img {
+#header {
+	text-align: left;
+}
+
+#site-title {
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 36px;
+	padding: 9px;
+}
+.minLink:link, .minLink:visited, .minLink:hover { color:#000000; outline: 0;}
+.minLink:active {color:#666666; outline: 0;}
+.minLink { text-decoration: none; }
+
+#navbar {
+	margin: 20px 0px;
+}
+
+#navbar a {
+	font-size: 20px;
+	padding: 5px 15px;
+}
+
+#findMePane img {
 	margin-top: 0;
 	padding: 5px 15px;
-	border: 0 none;
 }
