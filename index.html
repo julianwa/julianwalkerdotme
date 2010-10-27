@@ -10,19 +10,21 @@
 	<body>
 		<div id="container">
 			<div id="header">
-				<a href="#" id="site-title" class="minLink">website of julian walker</a>
+				<a href="" id="site-title" class="minLink">website of julian walker</a>
 				<br>
 				<img src="img/header.jpg">
 			</div>
 			<div id="navbar">
-				<a id="aboutLink" href="" class="minLink">About</a>
-				<a id="projectsLink" href="" class="minLink">Projects</a>
-				<a id="findMeLink" href="" class="minLink">Find me</a>
+				<div><a id="aboutLink" href="" class="minLink">About</a><a id="aboutSelectedDot"><br>·</a></div>
+				<div><a id="projectsLink" href="" class="minLink">Projects</a><a id="projectsSelectedDot"><br>·</a></div>
+				<div><a id="findMeLink" href="" class="minLink">Find me</a><a id="findMeSelectedDot"><br>·</a></div>
 				<br>
 				<img src="img/seperator.png">
 			</div>
 			<div id="portfolio">
 				<div id="findMePane">
+					<a href="mailto:julianreidwalker@gmail.com" class="minLink">julianreidwalker@gmail.com</a><br><br>
+					or<br><br>
 					<a target="_blank" href="http://facebook.com/julianwa">
 						<img title="Facebook" src="img/facebook.png"></a>
 					<a target="_blank" href="http://github.com/julianwa">
@@ -35,7 +37,7 @@
 						<img title="Delicious" src="img/delicious.png"></a>
 				</div>
 				<div id="aboutPane">
-					A little something about myself.
+					I'm a freelance software engineering consultant.<br><br>I specialize in 2D and 3D graphics programming, but am open to interesting projects of all sorts.<br><br>Seattle is my official home, but I enjoy a little nomadism here and there.
 				</div>		
 				<div id="projectsPane">
 					Some projects that I've worked on.
@@ -46,68 +48,75 @@
 		<script type="text/javascript">
 		
 			function addClickHandler(linkName) {
-				$('#' + linkName + 'Link').click(function(e) {
+				$("#" + linkName + "Link").click(function(e) {
 					$.bbq.pushState({ pane: linkName });
 					e.preventDefault();
 				});				
 			}
-		
+
 			$(document).ready(function() {
 				
-		        $(window).bind('hashchange', function(e) {
-			
-					var pane = $.bbq.getState('pane');
-					
-					if (pane == 'findMe')
-						displayPane('findMePane');
-					else if (pane == 'projects')
-						displayPane('projectsPane');
+		        $(window).bind("hashchange", function(e) {
+
+					var pane = $.bbq.getState("pane");
+
+
+					if (pane == "about")
+						displayPane("about");
+					else if (pane == "projects")
+						displayPane("projects");
 					else
-						displayPane('aboutPane');
+						displayPane("findMe");
 				});
 				
-				$(window).trigger('hashchange');
+				$(window).trigger("hashchange");
 				
-				$('#homeLink').click(function(e) {
-					$.bbq.removeState('pane');
+				$("#homeLink").click(function(e) {
+					$.bbq.removeState("pane");
 					e.preventDefault();
 				});
 				
-				addClickHandler('about');
-				addClickHandler('findMe');
-				addClickHandler('projects');
+				addClickHandler("about");
+				addClickHandler("findMe");
+				addClickHandler("projects");
 			});		
 		
-			var currentPane = '';
+			var currentPane = "";
 			var doingFadeOut = false;
 			
-			$('#findMePane').fadeOut(1);
-			$('#aboutPane').fadeOut(1);
-			$('#projectsPane').fadeOut(1);
+			$("#aboutPane").fadeOut(1);
+			$("#aboutSelectedDot").fadeTo(1, 0);
+			$("#projectsPane").fadeOut(1);
+			$("#projectsSelectedDot").fadeTo(1, 0);	
+			$("#findMePane").fadeOut(1);
+			$("#findMeSelectedDot").fadeTo(1, 0);
+
 			
 			function displayPane(paneName) {
 				
-				if (currentPane == '') {
-					currentPane = paneName;
-					$('#' + currentPane).fadeIn(1);
-				}
-				
-				var paneToFadeOut = currentPane;
-				currentPane = paneName;
-				
-				if (!doingFadeOut) {
+				if (currentPane == "") {
+									
+					$("#" + paneName + "Pane").fadeIn(1);
+					$("#" + paneName + "SelectedDot").fadeTo(1, 1);
 					
-					if (paneToFadeOut != currentPane) {
+				} else if (currentPane != paneName) {
+					
+					if (!doingFadeOut) {
 					
 						doingFadeOut = true;	
-					
-						$('#' + paneToFadeOut).fadeOut("def", function() {
-							$('#' + currentPane).fadeIn("def");
+
+						$("#" + currentPane + "Pane").fadeOut("def", function() {
+							$("#" + currentPane + "Pane").fadeIn("def");
 							doingFadeOut = false;
 						});
 					}
-				}				
-			}			
+					
+					$("#" + currentPane + "SelectedDot").fadeTo(1, 0);
+					$("#" + paneName + "SelectedDot").fadeTo(1, 1);
+				}
+				
+				currentPane = paneName;
+			}
 		</script>
 	</body>
 </html>

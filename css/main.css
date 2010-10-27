@@ -30,7 +30,7 @@ a > img {
 	display: inline-block;
 	margin: 20px auto 20px auto;
 	padding: 30px 10px 10px 10px;
-	height: 500;
+	min-height: 500;
 }
 
 #header {
@@ -39,7 +39,6 @@ a > img {
 
 #site-title {
 	font-size: 30px;
-	font-weight: bold;
 	line-height: 36px;
 	padding: 9px;
 }
@@ -51,9 +50,16 @@ a > img {
 	margin: 20px 0px;
 }
 
-#navbar a {
+#navbar div {
 	font-size: 20px;
 	padding: 5px 15px;
+	display: inline-block;
+	line-height: 15px;
+}
+
+#aboutPane {
+	display: inline-block;
+	width: 400;
 }
 
 #findMePane img {
