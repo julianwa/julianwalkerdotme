@@ -13,6 +13,9 @@ handlers:
   
 - url: /javascript
   static_dir: javascript
+  
+- url: /resume
+  static_dir: resume
     
 - url: .*
   script: main.py
