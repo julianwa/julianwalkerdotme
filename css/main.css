@@ -30,7 +30,7 @@ a > img {
 	display: inline-block;
 	margin: 20px auto 20px auto;
 	padding: 30px 10px 10px 10px;
-	min-height: 500;
+	min-height: 500px;
 }
 
 #header {
@@ -59,7 +59,7 @@ a > img {
 
 #aboutPane {
 	display: inline-block;
-	width: 400;
+	width: 400px;
 }
 
 #findMePane img {
